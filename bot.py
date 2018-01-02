@@ -143,7 +143,7 @@ class Modmail(commands.Bot):
         em = discord.Embed(color=0x00FFFF)
         em.set_author(name='Mod Mail - Help', icon_url=self.user.avatar_url)
         em.description = 'This bot is a python implementation of a stateless "Mod Mail" bot. ' \
-                         'Made by Kyb3r and improved by the suggestions of others. This bot ' \
+                         'Made by the Grok server organization and improved by the suggestions of others. This bot ' \
                          'saves no data and utilises channel topics for storage and syncing.' 
                  
 
@@ -160,7 +160,7 @@ class Modmail(commands.Bot):
         em.add_field(name='Commands', value=cmds)
         em.add_field(name='Warning', value=warn)
         em.add_field(name='Github', value='https://github.com/verixx/modmail')
-        em.set_footer(text='Star the repository to unlock hidden features!')
+        em.set_footer(text='Bot en español por Garcia1008#2953!')
 
         return em
 
@@ -325,7 +325,7 @@ class Modmail(commands.Bot):
     @property
     def blocked_em(self):
         em = discord.Embed(title='Message not sent!', color=discord.Color.red())
-        em.description = 'La SRL te ha bloqueado el uso del bot.'
+        em.description = 'El Staff te ha bloqueado el uso del bot.'
         return em
 
     async def process_modmail(self, message):
@@ -348,7 +348,7 @@ class Modmail(commands.Bot):
             return await message.author.send(embed=self.blocked_em)
 
         em = discord.Embed(title='Gracias por el mensaje!')
-        em.description = 'El equipo de staff de la SRL te respondera lo antes posible!'
+        em.description = 'El equipo de Staff te responderá lo antes posible!'
         em.color = discord.Color.green()
 
         if channel is not None:
@@ -360,7 +360,7 @@ class Modmail(commands.Bot):
                 category=categ
                 )
             await channel.edit(topic=topic)
-            await channel.send('@Garcia1008#2953', embed=self.format_info(message))
+            await channel.send('@ ', embed=self.format_info(message))
 
     async def on_message(self, message):
         if message.author.bot:
